@@ -1,0 +1,13 @@
+.container{
+    border: 1px solid aqua;
+}
+
+.container .header{
+    border-bottom: 1px solid red;
+}
+.container .footer{
+    border-top: 1px solid red;
+}
+.content .right-content .item{
+    border: 1px solid aquamarine;
+}
