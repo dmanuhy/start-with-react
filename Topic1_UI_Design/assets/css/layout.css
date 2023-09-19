@@ -1,0 +1,23 @@
+.container{
+    border: 1px solid aqua;
+}
+
+.container .header{
+    border-bottom: 1px solid red;
+}
+.container .footer{
+    border-top: 1px solid red;
+}
+.content .right-content{
+    padding: 0 40px;
+}
+
+.content .right-content .card{
+    border: none !important;
+}
+
+@media screen and (max-width: 576px) {
+    .container .left-content{
+        display: none;
+    }
+}
