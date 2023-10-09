@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Product from "./components/Product";
+import Category from "./components/Category";
+
+const productList = [
+  { id: 1, name: "Macbook Pro M1", categoryID: 1 },
+  { id: 2, name: "Samsung Note 9 Pro", categoryID: 2 },
+  { id: 3, name: "Iphone 15 ProMax", categoryID: 1 }
+]
+
+const categoryList = [
+  { id: 1, name: "Smartphone" },
+  { id: 2, name: "Tablet" }
+]
 
 function App() {
+
+  const [selectedCategoryID, setSelectedCategoryID] = useState(null);
+  const handleFilterProduct = (categoryID) => {
+    setSelectedCategoryID(categoryID);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <h1>Homepage</h1>
+        <div style={{ display: "flex", justifyContent: 'space-between' }}>
+          <Product productList={productList} categoryList={categoryList} categoryID={selectedCategoryID} />
+          <Category categoryList={categoryList} onClickFilterProduct={handleFilterProduct} />
+        </div>
+      </div>
+    </>
   );
 }
 
