@@ -1,34 +1,24 @@
 
-const Category = ({ categoryList, onClickFilterProduct }) => {
+const CategoryList = ({ categories, onClickFilterProduct }) => {
 
     return (
         <>
-            <div>
-                <h2>Category</h2>
-                <table border={1}>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            categoryList.map((item) => (
-                                <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td onClick={() => onClickFilterProduct(item.id)}>{item.name}</td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div >
+            <ul style={{ display: "flex", flexDirection: "row", gap: "40px" }}>
+                {
+                    categories.map(({ id, name }) => {
+                        return (
+                            <>
+                                <li key={id} onClick={() => onClickFilterProduct(id)}>{name}</li>
+                            </>
+                        )
+                    })
+                }
+            </ul>
         </>
     )
 }
 
-export default Category;
+export default CategoryList;
 
 //Advenced task
 //When users click on the name of Category, filter product by category.

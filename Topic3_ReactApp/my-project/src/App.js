@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Product from "./components/Product";
-import Category from "./components/Category";
-
+import ProductList from "./components/Product";
+import CategoryList from "./components/Category";
 const productList = [
   { id: 1, name: "Macbook Pro M1", categoryID: 1 },
   { id: 2, name: "Samsung Note 9 Pro", categoryID: 2 },
@@ -24,9 +23,9 @@ function App() {
     <>
       <div>
         <h1>Homepage</h1>
-        <div style={{ display: "flex", justifyContent: 'space-between' }}>
-          <Product productList={productList} categoryList={categoryList} categoryID={selectedCategoryID} />
-          <Category categoryList={categoryList} onClickFilterProduct={handleFilterProduct} />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <CategoryList categories={categoryList} onClickFilterProduct={handleFilterProduct} />
+          <ProductList products={productList} selectedCategoryID={selectedCategoryID} />
         </div>
       </div>
     </>
