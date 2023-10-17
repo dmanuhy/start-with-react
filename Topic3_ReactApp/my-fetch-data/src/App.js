@@ -14,7 +14,7 @@ function App() {
             </div>
             <div className="col-md-10 col-12">
               <Routes>
-                <Route path="/" element={<Photos />} />
+                <Route path="/" element={<Albums />} />
                 <Route path="/albums" element={<Albums />} />
                 <Route path="/photos" element={<Photos />} />
                 <Route path="/photos/:id" element={< PhotoDetail />} />
