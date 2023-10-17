@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ProductList from "./components/Product";
 import CategoryList from "./components/Category";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 const productList = [
   { id: 1, name: "Macbook Pro M1", categoryID: 1 },
   { id: 2, name: "Samsung Note 9 Pro", categoryID: 2 },
@@ -21,13 +23,17 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Homepage</h1>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <CategoryList categories={categoryList} onClickFilterProduct={handleFilterProduct} />
-          <ProductList products={productList} selectedCategoryID={selectedCategoryID} />
+      <BrowserRouter>
+        <div>
+          <h1>Homepage</h1>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Routes>
+              <Route path="/" element={<CategoryList categories={categoryList} onClickFilterProduct={handleFilterProduct} />} />
+              <Route path="/products" element={<ProductList products={productList} selectedCategoryID={selectedCategoryID} />} />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     </>
   );
 }
